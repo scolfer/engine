@@ -109,7 +109,7 @@ vars = {
 
   # Checkout Android dependencies only on platforms where we build for Android targets.
   # 'host_os == "mac" or host_os == "linux"'
-  'download_android_deps': Flase,
+  'download_android_deps': False,
 
   # Checkout Windows dependencies only if we are building on Windows.
   # 'host_os == "win"'
