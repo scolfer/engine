@@ -109,7 +109,7 @@ vars = {
 
   # Checkout Android dependencies only on platforms where we build for Android targets.
   # 'host_os == "mac" or host_os == "linux"'
-  'download_android_deps': False,
+  'download_android_deps': Flase,
 
   # Checkout Windows dependencies only if we are building on Windows.
   # 'host_os == "win"'
@@ -379,7 +379,7 @@ deps = {
    Var('dart_git') + '/package_config.git' + '@' + Var('dart_package_config_tag'),
 
   'src/third_party/dart/tools/sdks':
-   {'packages': [{'version': 'version:2.8.0-dev.18.0', 'package': 'dart/dart-sdk/win32'}], 'dep_type': 'cipd'},
+   {'packages': [{'version': 'version:2.8.0-dev.18.0', 'package': 'dart/dart-sdk/win'}], 'dep_type': 'cipd'},
 
   # WARNING: end of dart dependencies list that is cleaned up automatically - see create_updated_flutter_deps.py.
 
@@ -429,7 +429,7 @@ deps = {
    'src/third_party/android_tools/ndk': {
      'packages': [
        {
-        'package': 'flutter/android/ndk/win32',
+        'package': 'flutter/android/ndk/win',
         'version': 'version:r21.0.6113669'
        }
      ],
@@ -454,7 +454,7 @@ deps = {
   'src/third_party/android_tools/sdk/build-tools': {
      'packages': [
        {
-        'package': 'flutter/android/sdk/build-tools/win32',
+        'package': 'flutter/android/sdk/build-tools/win',
         'version': 'version:29.0.1'
        }
      ],
@@ -465,7 +465,7 @@ deps = {
   'src/third_party/android_tools/sdk/platform-tools': {
      'packages': [
        {
-        'package': 'flutter/android/sdk/platform-tools/win32',
+        'package': 'flutter/android/sdk/platform-tools/win',
         'version': 'version:29.0.2'
        }
      ],
@@ -487,7 +487,7 @@ deps = {
   'src/third_party/android_tools/sdk/tools': {
      'packages': [
        {
-        'package': 'flutter/android/sdk/tools/win32',
+        'package': 'flutter/android/sdk/tools/win',
         'version': 'version:26.1.1'
        }
      ],
@@ -509,7 +509,7 @@ deps = {
   'src/flutter/third_party/gn': {
     'packages': [
       {
-        'package': 'gn/gn/win32',
+        'package': 'gn/gn/win',
         'version': 'git_revision:152c5144ceed9592c20f0c8fd55769646077569b'
       },
     ],
@@ -519,7 +519,7 @@ deps = {
   'src/buildtools/{host_os}-x64/clang': {
     'packages': [
       {
-        'package': 'fuchsia/third_party/clang/win32',
+        'package': 'fuchsia/third_party/clang/win',
         'version': 'git_revision:7e9747b50bcb1be28d4a3236571e8050835497a6'
       }
     ],
