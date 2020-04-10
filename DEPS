@@ -108,12 +108,10 @@ vars = {
   'ios_tools_revision': '69b7c1b160e7107a6a98d948363772dc9caea46f',
 
   # Checkout Android dependencies only on platforms where we build for Android targets.
-  # 'host_os == "mac" or host_os == "linux"'
-  'download_android_deps': False,
+  'download_android_deps': 'host_os == "mac" or host_os == "linux"',
 
   # Checkout Windows dependencies only if we are building on Windows.
-  # 'host_os == "win"'
-  'download_windows_deps' : True,
+  'download_windows_deps' : 'host_os == "win"',
 
   # An LLVM backend needs LLVM binaries and headers. To avoid build time
   # increases we can use prebuilts. We don't want to download this on every
@@ -379,7 +377,7 @@ deps = {
    Var('dart_git') + '/package_config.git' + '@' + Var('dart_package_config_tag'),
 
   'src/third_party/dart/tools/sdks':
-   {'packages': [{'version': 'version:2.8.0-dev.18.0', 'package': 'dart/dart-sdk/win'}], 'dep_type': 'cipd'},
+   {'packages': [{'version': 'version:2.8.0-dev.18.0', 'package': 'dart/dart-sdk/${{platform}}'}], 'dep_type': 'cipd'},
 
   # WARNING: end of dart dependencies list that is cleaned up automatically - see create_updated_flutter_deps.py.
 
@@ -429,7 +427,7 @@ deps = {
    'src/third_party/android_tools/ndk': {
      'packages': [
        {
-        'package': 'flutter/android/ndk/win',
+        'package': 'flutter/android/ndk/${{platform}}',
         'version': 'version:r21.0.6113669'
        }
      ],
@@ -454,7 +452,7 @@ deps = {
   'src/third_party/android_tools/sdk/build-tools': {
      'packages': [
        {
-        'package': 'flutter/android/sdk/build-tools/win',
+        'package': 'flutter/android/sdk/build-tools/${{platform}}',
         'version': 'version:29.0.1'
        }
      ],
@@ -465,7 +463,7 @@ deps = {
   'src/third_party/android_tools/sdk/platform-tools': {
      'packages': [
        {
-        'package': 'flutter/android/sdk/platform-tools/win',
+        'package': 'flutter/android/sdk/platform-tools/${{platform}}',
         'version': 'version:29.0.2'
        }
      ],
@@ -487,7 +485,7 @@ deps = {
   'src/third_party/android_tools/sdk/tools': {
      'packages': [
        {
-        'package': 'flutter/android/sdk/tools/win',
+        'package': 'flutter/android/sdk/tools/${{platform}}',
         'version': 'version:26.1.1'
        }
      ],
@@ -509,7 +507,7 @@ deps = {
   'src/flutter/third_party/gn': {
     'packages': [
       {
-        'package': 'gn/gn/win',
+        'package': 'gn/gn/${{platform}}',
         'version': 'git_revision:152c5144ceed9592c20f0c8fd55769646077569b'
       },
     ],
@@ -519,7 +517,7 @@ deps = {
   'src/buildtools/{host_os}-x64/clang': {
     'packages': [
       {
-        'package': 'fuchsia/third_party/clang/win',
+        'package': 'fuchsia/third_party/clang/${{platform}}',
         'version': 'git_revision:7e9747b50bcb1be28d4a3236571e8050835497a6'
       }
     ],
